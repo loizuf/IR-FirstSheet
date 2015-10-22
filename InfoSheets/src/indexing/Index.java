@@ -1,3 +1,5 @@
+package indexing;
+
 import java.util.List;
 
 public interface Index {
