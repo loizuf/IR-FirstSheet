@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
+import indexing.InvertedIndex;
 import indexing.Document;
 import indexing.FileReader;
 
@@ -12,6 +13,7 @@ public class MainController {
 	/* Variables */
 	private static FileReader fileReader;
 	private static ArrayList<Document> collection;
+	private static InvertedIndex invertedIndex;
 
 	/* Constants */
 	private static final String LoremIpsumCollectionDirectoryPath = "collections";
@@ -19,9 +21,13 @@ public class MainController {
 	public static void main(String[] args) throws FileNotFoundException {
 		instantiate();
 		readCollection();
-		
+		createIndex();
 		// only for test purposes
 		test();
+	}
+
+	private static void createIndex() {
+		invertedIndex = new InvertedIndex(collection);
 	}
 
 	private static void test() {
@@ -31,10 +37,13 @@ public class MainController {
 		System.out.println(test.getName());
 		
 		ArrayList<String> uniqueWords = test.getUniqueWordList();
-		System.out.println(uniqueWords.toString());
+		System.out.println(uniqueWords.size());
 		
 		ArrayList<String> allWords = test.getWordList();
 		System.out.println(allWords.size());
+		
+		ArrayList<String> searchResult = invertedIndex.searchForSingleWord("Lorem");
+		System.out.println(searchResult);
 	}
 
 	private static void instantiate() throws FileNotFoundException {
