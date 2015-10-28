@@ -1,9 +1,8 @@
-<>import java.util.List;
-
-import indexing.Index;
-import indexing.Indexable;
+package indexing;
+import java.util.List;
 
 public abstract class AbstractIndex implements Index {
+	
 	public float getIDF(String term) {
 		return 0.0F;
 	}
