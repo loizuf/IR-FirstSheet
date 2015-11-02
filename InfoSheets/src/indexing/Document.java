@@ -3,6 +3,8 @@ package indexing;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import preprocessing.Tokenizer;
+
 /*
  * creating and storing these documents might be not sensible in an actual IR-system. This is done here
  * to represent all files (in there original form, so no stemming or anything else) and to give access
@@ -10,6 +12,7 @@ import java.util.HashMap;
  */
 public class Document implements Indexable {
 
+	private String plainText;
 	private ArrayList<String> wordList;
 	private HashMap<String, Integer> wordCounts;
 	private String name;
@@ -22,9 +25,10 @@ public class Document implements Indexable {
 	 * @param unalteredWords
 	 * @param name
 	 */
-	public Document(ArrayList<String> unalteredWords, String name) {
+	public Document(String unalteredWords, String name) {
 		this.name = name;
-		wordList = unalteredWords;
+		plainText = unalteredWords;
+		wordList = Tokenizer.tokenize(plainText);
 		totalWordCount = wordList.size();
 		wordCounts = new HashMap<>();
 		countOccurrences();
@@ -66,6 +70,11 @@ public class Document implements Indexable {
 	public ArrayList<String> getUniqueWordList() {
 		ArrayList<String> uniqueWordList = new ArrayList<String>(wordCounts.keySet());
 		return uniqueWordList;
+	}
+	
+	// Interface Method (Indexable)
+	public String getPlainText() {
+		return plainText;
 	}
 
 	public String getName() {
