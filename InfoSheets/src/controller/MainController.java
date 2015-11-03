@@ -105,18 +105,13 @@ public class MainController {
 				Document document = readDocument(child);
 				collection.add(document);
 			}
-		} else {
-			// Handle the case where dir is not really a directory.
-			// Checking dir.isDirectory() above would not be sufficient
-			// to avoid race conditions with another process that deletes
-			// directories.
-		}
+		} 
 	}
 
 	public static Document readDocument(File file) throws FileNotFoundException {
 		/*
-		 * Scanner uses Whitespace as delimiter. Documents and query should use
-		 * the Tokenizer class to change that
+		 * We use Scanner object to read in documents, but we will use our own Tokeniser 
+		 * to see how various pre-processing steps work
 		 */
 		Scanner scanner = new Scanner(file).useDelimiter("\\A");
 		String entireTextFile = scanner.next();

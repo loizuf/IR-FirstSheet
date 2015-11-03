@@ -41,15 +41,6 @@ public interface Indexable {
 	 * @return count - Number of Occurrences of word
 	 */
 	int getWordCount(String word);
-
-	/**
-	 * Returns all words in this Document (without duplicates).
-	 * 
-	 * @param word
-	 *            - The string to be counted
-	 * @return count - Number of Occurrences of word
-	 */
-	int getUniqueWordCount(String word);
 	
 	/**
 	 * Returns plain text in this document or query.
