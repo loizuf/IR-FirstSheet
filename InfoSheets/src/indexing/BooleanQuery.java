@@ -5,27 +5,29 @@ import java.util.LinkedHashSet;
 
 import preprocessing.Tokenizer;
 
-public class Query implements Indexable {
-
-	// Even though not further specified this Query class handles boolean retrieval
+public class BooleanQuery implements Indexable {
 	
+	/*
+	 * plainText - One String conaining the complete text
+	 * tokens - List of the words as they appear in the Query (allready split by Tokenizer)
+	 * wordcounts - Hashmap containing the number of times (value) a term (key) appears in the text
+	 */
 	private String plainText;
 	private ArrayList<String> tokens;
 	private HashMap<String, Integer> wordCounts;
-	private int totalWordCount = 0;
-	private int uniqueWordCount = 0;
-
-	public Query(String searchText, boolean booleanRetrieval) {
+	
+	/**
+	 * Constructor for a representation of a boolean query within the code.
+	 * 
+	 * @param searchText - String containing the complete user-search-input
+	 */
+	public BooleanQuery(String searchText) {
 		plainText = searchText;
 		tokens = new ArrayList<>();
-		tokens = Tokenizer.tokenize(plainText, booleanRetrieval);
-		totalWordCount = tokens.size();
+		tokens = Tokenizer.tokenizeBooleanAND(plainText);
+		
+		// This fills the Hashmap which counts the occurrences of a term
 		wordCounts = new HashMap<>();
-		countOccurrences();
-		uniqueWordCount = wordCounts.size();
-	}
-	
-	private void countOccurrences() {
 		for (String word : tokens) {
 			Integer count = wordCounts.get(word);
 			if (count == null) {
@@ -56,12 +58,7 @@ public class Query implements Indexable {
 
 	// Interface Method (Indexable)
 	public int getWordCount(String word) {
-		return totalWordCount;
-	}
-
-	// Interface Method (Indexable)
-	public int getUniqueWordCount(String word) {
-		return uniqueWordCount;
+		return wordCounts.get(word);
 	}
 
 	// Interface Method (Indexable)
