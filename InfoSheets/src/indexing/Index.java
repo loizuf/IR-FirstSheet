@@ -1,7 +1,7 @@
 package indexing;
 
 import java.util.List;
-
+// not used so far
 public interface Index {
 	float getIDF(String paramString);
 

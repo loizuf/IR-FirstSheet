@@ -12,30 +12,31 @@ import preprocessing.Tokenizer;
  */
 public class Document implements Indexable {
 
+	/*
+	 * plainText - One String conaining the complete text
+	 * wordList - List of the words as they appear in the text (with duplicates)
+	 * wordcounts - Hashmap containing the number of times (value) a term (key) appears in the text
+	 * name - Name of the document
+	 */
 	private String plainText;
 	private ArrayList<String> wordList;
 	private HashMap<String, Integer> wordCounts;
 	private String name;
-	private int totalWordCount = 0;
-	private int uniqueWordCount = 0;
 
 	/**
 	 * Constructor for a representation of a document within the code.
 	 * 
-	 * @param unalteredWords
-	 * @param name
+	 * @param unalteredWords - String containing the complete text of the document
+	 * @param name - name of the document
 	 */
 	public Document(String unalteredWords, String name) {
+		
 		this.name = name;
 		plainText = unalteredWords;
 		wordList = Tokenizer.tokenize(plainText);
-		totalWordCount = wordList.size();
+		
+		// This fills the Hashmap which counts the occurences of a term
 		wordCounts = new HashMap<>();
-		countOccurrences();
-		uniqueWordCount = wordCounts.size();
-	}
-
-	private void countOccurrences() {
 		for (String word : wordList) {
 			Integer count = wordCounts.get(word);
 			if (count == null) {
@@ -45,6 +46,22 @@ public class Document implements Indexable {
 			}
 		}
 	}
+	
+	/**
+	 * Returns the total number of terms in this document (with duplicates)
+	 * @return Number of total Words in this Document
+	 */
+	public int getTotalWordCount() {
+		return wordList.size();
+	}
+
+	/**
+	 * Returns the name of the document
+	 * @return name - String containing the name of the document
+	 */
+	public String getName() {
+		return name;
+	}
 
 	// Interface Method (Indexable)
 	public HashMap<String, Integer> getWordCountList() {
@@ -53,12 +70,12 @@ public class Document implements Indexable {
 
 	// Interface Method (Indexable)
 	public int getWordCount(String word) {
-		return totalWordCount;
+		return wordCounts.get(word);
 	}
 
 	// Interface Method (Indexable)
-	public int getUniqueWordCount(String word) {
-		return uniqueWordCount;
+	public int getUniqueWordCount() {
+		return wordCounts.size();
 	}
 
 	// Interface Method (Indexable)
@@ -75,9 +92,5 @@ public class Document implements Indexable {
 	// Interface Method (Indexable)
 	public String getPlainText() {
 		return plainText;
-	}
-
-	public String getName() {
-		return name;
 	}
 }
