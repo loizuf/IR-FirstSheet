@@ -28,6 +28,12 @@ public class InvertedIndex {
 	public ArrayList<Integer> performANDMerge(String firstWord, String secondWord) {
 		return null;
 	}
+
+
+	public ArrayList<Integer> performANDMerge(String[] queryTerms) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	// Für Aufgabe 5 erweitern sie diese Klasse um weitere Methoden
 }

@@ -16,20 +16,18 @@ public class MainController {
 		// invertedIndex - Repräsentation des InvertedIndex
 		InvertedIndex invertedIndex = new InvertedIndex(collection);
 
-		String firstTerm = null;
-		String secondTerm = null;
-
-		// Diese Methode liest einen String vom User ein und splittet diesen in 2 Strings
-		getQueryTerms(firstTerm, secondTerm);
+		// queryTerms - Array das die beiden Query Terms enthält
+		String[] queryTerms = getQueryTerms();
 
 		// mergeResult- Liste aller IDs der Dokumente die der Query entsprechen
-		ArrayList<Integer> mergeResult = invertedIndex.performANDMerge(firstTerm, secondTerm);
+		ArrayList<Integer> mergeResult = invertedIndex.performANDMerge(queryTerms);
 
 		postResults(mergeResult);
 	}
 
 	// Bearbeiten sie Aufgabe 3 hier.
-	private static void getQueryTerms(String firstTerm, String secondTerm) {
+	private static String[] getQueryTerms() {
+		return null;
 	}
 
 	/*

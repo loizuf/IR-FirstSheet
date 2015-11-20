@@ -1,8 +1,4 @@
-/_firstGiven/
-/_firstWork/
-/disk76.txt
-/disk77.txt
-/disk78.txt
+/controller/
 /disk79.txt
 /disk8.txt
 /disk80.txt
@@ -26,3 +22,6 @@
 /disk97.txt
 /disk98.txt
 /disk99.txt
+/indexing/
+/preprocessing/
+/searchengines/
