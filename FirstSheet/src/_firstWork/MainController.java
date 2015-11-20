@@ -1,6 +1,8 @@
 package _firstWork;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import _firstGiven.BooleanDocument;
@@ -15,9 +17,12 @@ public class MainController {
 
 		// invertedIndex - Repräsentation des InvertedIndex
 		InvertedIndex invertedIndex = new InvertedIndex(collection);
+		
+		BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
+		String query = rd.readLine();
 
 		// queryTerms - Array das die beiden Query Terms enthält
-		String[] queryTerms = getQueryTerms();
+		String[] queryTerms = getQueryTerms(query);
 
 		// mergeResult- Liste aller IDs der Dokumente die der Query entsprechen
 		ArrayList<Integer> mergeResult = invertedIndex.performANDMerge(queryTerms);
@@ -26,7 +31,7 @@ public class MainController {
 	}
 
 	// Bearbeiten sie Aufgabe 3 hier.
-	private static String[] getQueryTerms() {
+	public static String[] getQueryTerms(String query) {
 		return null;
 	}
 

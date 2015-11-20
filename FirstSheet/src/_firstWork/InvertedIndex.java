@@ -12,28 +12,20 @@ public class InvertedIndex {
 
 	private HashMap<String, ArrayList<Integer>> invertedIndex;
 
-
 	// Bearbeiten sie Aufgabe 1 hier.
 	public InvertedIndex(ArrayList<BooleanDocument> collection) {
-		
-	}
 
+	}
 
 	// Bearbeiten sie Aufgabe 2 hier.
-	public  ArrayList<Integer> searchForSingleWord(String word) {
+	public ArrayList<Integer> searchForSingleWord(String word) {
 		return null;
 	}
-	
+
 	// Bearbeiten sie Aufgabe 4 hier
-	public ArrayList<Integer> performANDMerge(String firstWord, String secondWord) {
-		return null;
-	}
-
-
 	public ArrayList<Integer> performANDMerge(String[] queryTerms) {
-		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 	// Für Aufgabe 5 erweitern sie diese Klasse um weitere Methoden
 }
