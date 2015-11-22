@@ -26,6 +26,11 @@ public class InvertedIndex {
 	public ArrayList<Integer> performANDMerge(String[] queryTerms) {
 		return null;
 	}
+	
+	// For JUNIT-Tests. This Method must not be edited or deleted
+	public HashMap<String, ArrayList<Integer>> getInvertedIndexHashmap(){
+		return invertedIndex;
+	}
 
 	// Für Aufgabe 5 erweitern sie diese Klasse um weitere Methoden
 }
