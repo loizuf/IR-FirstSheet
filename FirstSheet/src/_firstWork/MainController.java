@@ -10,14 +10,20 @@ import _firstGiven.FileReader;
 
 public class MainController {
 
+	/*
+	 * LoremIpsumCollectionDirectoryPath - Name des Verzeichnisses das die
+	 * Dokumente enthält
+	 */
+	private static final String LOREM_IPSUM_COLLECTION_DIRECTORY_PATH = "collections";
+
 	public static void main(String[] args) throws IOException {
 
 		// collection - Liste aller Document-Objekte
-		ArrayList<BooleanDocument> collection = FileReader.readCollection();
+		ArrayList<BooleanDocument> collection = FileReader.readCollection(LOREM_IPSUM_COLLECTION_DIRECTORY_PATH);
 
 		// invertedIndex - Repräsentation des InvertedIndex
 		InvertedIndex invertedIndex = new InvertedIndex(collection);
-		
+
 		BufferedReader rd = new BufferedReader(new InputStreamReader(System.in));
 		String query = rd.readLine();
 
