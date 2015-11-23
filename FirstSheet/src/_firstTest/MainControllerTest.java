@@ -1,3 +1,5 @@
+// This class is the test class for the maincontroller-method which reads and splits the user Input
+
 package _firstTest;
 
 import static org.junit.Assert.assertEquals;
@@ -7,6 +9,10 @@ import org.junit.Test;
 import _firstWork.MainController;
 
 public class MainControllerTest {
+	
+	// It is easier here to just built a method for each case instead of using a parameterized tests
+	// could be refactored later into a parameterized test
+	// tests aim to test the limits (lower and uppercase, whitespace) of what is expected in the first sheet
 
 	@SuppressWarnings("deprecation")
 	@Test
