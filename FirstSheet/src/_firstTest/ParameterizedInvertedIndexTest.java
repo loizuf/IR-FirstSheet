@@ -19,10 +19,9 @@ import _firstWork.InvertedIndex;
 
 @RunWith(Parameterized.class)
 public class ParameterizedInvertedIndexTest {
-
-	private static final String TEST_PATH_1 = null;
-	private static final String TEST_PATH_2 = null;
-	private static final String TEST_PATH_3 = null;
+	
+	private static final String TEST_PATH_1 = "collections/testCollections/first";
+	private static final String TEST_PATH_2 = "collections/testCollections/second";
 	
 	// These Variables have to be created by hand. Cant use the algorithm or students would just copy it
 	// these are only small testcollections anyway (2-10 documents), it's just about the principle after all
@@ -35,14 +34,14 @@ public class ParameterizedInvertedIndexTest {
 	private HashMap<String, ArrayList<Integer>> expectedIndex;
 	
 	public ParameterizedInvertedIndexTest(ArrayList<BooleanDocument> inputCollection, HashMap<String, ArrayList<Integer>> expectedIndex) {
+		
 		this.inputCollection = inputCollection;
 		this.expectedIndex = expectedIndex;
-		setupInvertedIndeces();
 	}
 
 	@Parameters
 	public static List<Object[]> data() throws FileNotFoundException {
-		
+		setupInvertedIndeces();
 		// use filereader class to read in testcollections from different locations here
 		ArrayList<BooleanDocument> testCollection1 = FileReader.readCollection(TEST_PATH_1);
 		ArrayList<BooleanDocument> testCollection2 = FileReader.readCollection(TEST_PATH_2);
@@ -55,12 +54,11 @@ public class ParameterizedInvertedIndexTest {
 
 	@Test
 	public void testInvertedIndex() {
-		System.out.println(testInvertedIndex1.toString());
 		assertEquals(expectedIndex, new InvertedIndex(inputCollection).getInvertedIndexHashmap());
 	}
 	
 	// Horrible!!! has to be done SOMWHERE else
-	private void setupInvertedIndeces() {
+	private static void setupInvertedIndeces() {
 		testInvertedIndex1 = new HashMap<>();
 		testInvertedIndex2 = new HashMap<>();
 		
@@ -68,7 +66,7 @@ public class ParameterizedInvertedIndexTest {
 		setup2(testInvertedIndex2);
 	}
 
-	private void setup1(HashMap<String, ArrayList<Integer>> testInvertedIndex) {
+	private static void setup1(HashMap<String, ArrayList<Integer>> testInvertedIndex) {
 		testInvertedIndex.put("bush", new ArrayList<Integer>(Arrays.asList(new Integer[] {1, 2, 3})));
 		testInvertedIndex.put("suck", new ArrayList<Integer>(Arrays.asList(new Integer[] {1})));
 		testInvertedIndex.put("donkey", new ArrayList<Integer>(Arrays.asList(new Integer[] {1, 2})));
@@ -93,7 +91,7 @@ public class ParameterizedInvertedIndexTest {
 		
 	}
 
-	private void setup2(HashMap<String, ArrayList<Integer>> testInvertedIndex) {
+	private static void setup2(HashMap<String, ArrayList<Integer>> testInvertedIndex) {
 		testInvertedIndex.put("there", new ArrayList<Integer>(Arrays.asList(new Integer[] {1})));
 		testInvertedIndex.put("is", new ArrayList<Integer>(Arrays.asList(new Integer[] {1, 2, 3})));
 		testInvertedIndex.put("no", new ArrayList<Integer>(Arrays.asList(new Integer[] {1, 3})));

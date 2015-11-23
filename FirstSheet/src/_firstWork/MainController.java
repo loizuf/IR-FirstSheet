@@ -14,7 +14,7 @@ public class MainController {
 	 * LoremIpsumCollectionDirectoryPath - Name des Verzeichnisses das die
 	 * Dokumente enthält
 	 */
-	private static final String LOREM_IPSUM_COLLECTION_DIRECTORY_PATH = "collections";
+	private static final String LOREM_IPSUM_COLLECTION_DIRECTORY_PATH = "collections/lorem";
 
 	public static void main(String[] args) throws IOException {
 
