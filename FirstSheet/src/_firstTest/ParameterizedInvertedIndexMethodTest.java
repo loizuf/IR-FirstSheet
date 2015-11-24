@@ -1,6 +1,6 @@
 // This tests the searchmethod of the inverted index. The index constructor has to work for this
 
-package _firstWork;
+package _firstTest;
 
 import static org.junit.Assert.assertEquals;
 
@@ -15,6 +15,7 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 import _firstGiven.FileReader;
+import _firstWork.InvertedIndex;
 
 @RunWith(Parameterized.class)
 public class ParameterizedInvertedIndexMethodTest {
