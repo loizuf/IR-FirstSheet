@@ -76,12 +76,12 @@ public class ParameterizedInvertedIndexTest {
 
 	// Filling the resulting invertedIndex by hand to test the collection
 	private static void setup1(HashMap<String, ArrayList<Integer>> testInvertedIndex) {
-		testInvertedIndex.put("bush", new ArrayList<Integer>(Arrays.asList(new Integer[] {1, 2, 3})));
-		testInvertedIndex.put("suck", new ArrayList<Integer>(Arrays.asList(new Integer[] {1})));
+		testInvertedIndex.put("president", new ArrayList<Integer>(Arrays.asList(new Integer[] {1, 2, 3})));
+		testInvertedIndex.put("swim", new ArrayList<Integer>(Arrays.asList(new Integer[] {1})));
 		testInvertedIndex.put("donkey", new ArrayList<Integer>(Arrays.asList(new Integer[] {1, 2, 3})));
-		testInvertedIndex.put("boner", new ArrayList<Integer>(Arrays.asList(new Integer[] {1})));
+		testInvertedIndex.put("poststamp", new ArrayList<Integer>(Arrays.asList(new Integer[] {1})));
 		testInvertedIndex.put("because", new ArrayList<Integer>(Arrays.asList(new Integer[] {1, 2})));
-		testInvertedIndex.put("republican", new ArrayList<Integer>(Arrays.asList(new Integer[] {1, 3})));
+		testInvertedIndex.put("boat", new ArrayList<Integer>(Arrays.asList(new Integer[] {1, 3})));
 		testInvertedIndex.put("are", new ArrayList<Integer>(Arrays.asList(new Integer[] {1, 2})));
 		testInvertedIndex.put("stupid", new ArrayList<Integer>(Arrays.asList(new Integer[] {1, 2})));
 		testInvertedIndex.put("all", new ArrayList<Integer>(Arrays.asList(new Integer[] {2})));
