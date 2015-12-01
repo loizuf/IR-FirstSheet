@@ -48,14 +48,14 @@ public class TestMerge {
 	public static List<Object[]> data() {
 		return Arrays
 				.asList(new Object[][] { 
-					{ new String[]{"is", "null"}, new ArrayList<Integer>(Arrays.asList(new Integer[] { 1, 2 })), "2. Term nicht vorhanden" },
-					{ new String[]{"naught", "is"}, new ArrayList<Integer>(Arrays.asList(new Integer[] { 1, 2 })), "1. Term nicht vorhanden" },
-					{ new String[]{"naught", "null"}, new ArrayList<Integer>(Arrays.asList(new Integer[] { 1, 2 })), "Beide Terme nicht vorhanden" },
+					{ new String[]{"is", "null"}, new ArrayList<Integer>(Arrays.asList(new Integer[] {})), "2. Term nicht vorhanden" },
+					{ new String[]{"naught", "is"}, new ArrayList<Integer>(Arrays.asList(new Integer[] {})), "1. Term nicht vorhanden" },
+					{ new String[]{"naught", "null"}, new ArrayList<Integer>(Arrays.asList(new Integer[] {})), "Beide Terme nicht vorhanden" },
 					{ new String[]{"no", "green"}, new ArrayList<Integer>(Arrays.asList(new Integer[] { 1 })), "Match am Anfang" },
 					{ new String[]{"eating", "this"}, new ArrayList<Integer>(Arrays.asList(new Integer[] { 4 })), "Match am Ende" },
 					{ new String[]{"moon", "eating"}, new ArrayList<Integer>(Arrays.asList(new Integer[] { 2 })), "Match in der Mitte" },
-					{ new String[]{"corn", "station"}, new ArrayList<Integer>(Arrays.asList(new Integer[] { 1, 2 })), "Mehrere Matches" },
-					{ new String[]{"moon", "moon"}, new ArrayList<Integer>(Arrays.asList(new Integer[] { 1, 2 })), "Gleiches Wort" }
+					{ new String[]{"corn", "station"}, new ArrayList<Integer>(Arrays.asList(new Integer[] { 3, 5 })), "Mehrere Matches" },
+					{ new String[]{"moon", "moon"}, new ArrayList<Integer>(Arrays.asList(new Integer[] { 1, 2, 3, 5 })), "Gleiches Wort" }
 				});
 	}
 
