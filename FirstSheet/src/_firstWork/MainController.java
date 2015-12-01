@@ -1,6 +1,8 @@
 package _firstWork;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -9,10 +11,16 @@ import _firstGiven.FileReader;
 
 public class MainController {
 
+	/*
+	 * LoremIpsumCollectionDirectoryPath - Name des Verzeichnisses das die
+	 * Dokumente enth�lt
+	 */
+	private static final String LOREM_IPSUM_COLLECTION_DIRECTORY_PATH = "collections/lorem";
+
 	public static void main(String[] args) throws IOException {
 
 		// collection - Liste aller Document-Objekte
-		ArrayList<BooleanDocument> collection = FileReader.readCollection();
+		ArrayList<BooleanDocument> collection = FileReader.readCollection(LOREM_IPSUM_COLLECTION_DIRECTORY_PATH);
 
 		// invertedIndex - Repr�sentation des InvertedIndex
 		InvertedIndex invertedIndex = new InvertedIndex(collection);
@@ -30,10 +38,7 @@ public class MainController {
 		String[] qterms = query.trim().split("AND");
 		//for (String q:qterms)
 		//	System.out.println(q.trim().toLowerCase());
-		
 
-		// Diese Methode liest einen String vom User ein und splittet diesen in 2 Strings
-		//getQueryTerms(firstTerm, secondTerm);
 
 		// mergeResult- Liste aller IDs der Dokumente die der Query entsprechen
 		ArrayList<Integer> mergeResult = invertedIndex.performANDMerge(qterms[0], qterms[1]);
@@ -42,7 +47,8 @@ public class MainController {
 	}
 
 	// Bearbeiten sie Aufgabe 3 hier.
-	private static void getQueryTerms(String firstTerm, String secondTerm) {
+	public static String[] getQueryTerms(String query) {
+		return null;
 	}
 
 	/*

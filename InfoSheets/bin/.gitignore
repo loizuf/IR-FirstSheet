@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /controller/
 /disk1.txt
 /disk10.txt
@@ -99,6 +100,8 @@
 /disk97.txt
 /disk98.txt
 /disk99.txt
+=======
+>>>>>>> branch 'master' of https://github.com/loizuf/Information-Retrieval-Worksheets.git
 /indexing/
 /preprocessing/
 /searchengines/

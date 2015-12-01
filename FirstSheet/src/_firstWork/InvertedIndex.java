@@ -13,11 +13,9 @@ public class InvertedIndex {
 
 	private HashMap<String, ArrayList<Integer>> invertedIndex;
 	
-	
-	
 	// Bearbeiten sie Aufgabe 1 hier.
 	public InvertedIndex(ArrayList<BooleanDocument> collection) {
-		
+
 		invertedIndex = new HashMap<String,ArrayList<Integer>>();
 		
 		Iterator<BooleanDocument> it = collection.iterator();
@@ -58,7 +56,7 @@ public class InvertedIndex {
 	public  ArrayList<Integer> searchForSingleWord(String word) {
 		return invertedIndex.get(word);
 	}
-	
+
 	// Bearbeiten sie Aufgabe 4 hier
 	public ArrayList<Integer> performANDMerge(String firstWord, String secondWord) {
 		//empty arraylist to place results
@@ -87,8 +85,12 @@ public class InvertedIndex {
 		}
 		
 		return results;
-		
 	}
 	
+	// For JUNIT-Tests. This Method must not be edited or deleted
+	public HashMap<String, ArrayList<Integer>> getInvertedIndexHashmap(){
+		return invertedIndex;
+	}
+
 	// F�r Aufgabe 5 erweitern sie diese Klasse um weitere Methoden
 }
