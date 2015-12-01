@@ -19,7 +19,7 @@ public class InvertedIndex {
 		invertedIndex = new HashMap<String,ArrayList<Integer>>();
 		
 		Iterator<BooleanDocument> it = collection.iterator();
-		int docId = -1;
+		int docId = 0;
 		while (it.hasNext()){
 			BooleanDocument doc = it.next();
 			docId++;
@@ -44,11 +44,13 @@ public class InvertedIndex {
 		
 		ArrayList<Integer> docList = invertedIndex.get(t);
 		
-		if (docList==null)
-			invertedIndex.put(t, new ArrayList<Integer>());
-		else {
-			docList.add(doc);
+		if (docList==null){
+			docList = new ArrayList<Integer>();
+			invertedIndex.put(t, docList);
 		}
+			
+		docList.add(doc);
+		
 		
 	}
 	
