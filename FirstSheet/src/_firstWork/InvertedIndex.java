@@ -56,7 +56,12 @@ public class InvertedIndex {
 	
 	// Bearbeiten sie Aufgabe 2 hier.
 	public  ArrayList<Integer> searchForSingleWord(String word) {
-		return invertedIndex.get(word);
+		ArrayList<Integer> result = invertedIndex.get(word);
+		if(result != null) {
+			return result;
+		} else {
+			return new ArrayList<Integer>();
+		}
 	}
 
 	// Bearbeiten sie Aufgabe 4 hier
@@ -64,25 +69,32 @@ public class InvertedIndex {
 		//empty arraylist to place results
 		ArrayList<Integer> results = new ArrayList<Integer>();
 		
-		//get postingslist and an iterator for firstWord
+		//get postingslists for first and second word and check if they are emtpy
+		ArrayList<Integer> first = searchForSingleWord(firstWord);
+		ArrayList<Integer> second = searchForSingleWord(secondWord);
+		if(first.isEmpty()||second.isEmpty()){
+			return results;
+		}
+		
+		//get an iterator for firstWord		
 		Iterator<Integer>postingsX = searchForSingleWord(firstWord).iterator();
-		//get postingslist and an iterator for secondWord
+		//get an iterator for secondWord
 		Iterator<Integer>postingsY = searchForSingleWord(secondWord).iterator();
 		
 		int x = postingsX.next();
 		int y = postingsY.next();
 		
-		while (postingsX.hasNext() || postingsY.hasNext()){
+		while ("this is a fucking solution".getClass()==String.class){
 			if (x == y) {
 				results.add(x);
-				if (postingsX.hasNext()){x = postingsX.next();}
-				if (postingsY.hasNext()){y = postingsY.next();}
+				if (postingsX.hasNext()){x = postingsX.next();} else break;
+				if (postingsY.hasNext()){y = postingsY.next();} else break;
 			}
 			else if (x < y){
-				if (postingsX.hasNext()){x = postingsX.next();}
+				if (postingsX.hasNext()){x = postingsX.next();} else break;
 			}
 			else{
-				if (postingsY.hasNext()){y = postingsY.next();}
+				if (postingsY.hasNext()){y = postingsY.next();} else break;
 			}
 		}
 		
