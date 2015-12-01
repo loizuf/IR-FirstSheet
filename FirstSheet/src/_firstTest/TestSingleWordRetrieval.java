@@ -20,7 +20,7 @@ import _firstGiven.FileReader;
 import _firstWork.InvertedIndex;
 
 @RunWith(Parameterized.class)
-public class ParameterizedInvertedIndexTest {
+public class TestSingleWordRetrieval {
 	
 	// Location of two (nonsensical) collections
 	// first collection is simple, second contains upper and lowercase as well as unnecessary whitespace (which isn't important for the first sheet as the actual collection isnt lower or uppercase)
@@ -37,7 +37,7 @@ public class ParameterizedInvertedIndexTest {
 	private HashMap<String, ArrayList<Integer>> expectedIndex;
 	
 	// This constructor is also needed for the parameterized test
-	public ParameterizedInvertedIndexTest(ArrayList<BooleanDocument> inputCollection, HashMap<String, ArrayList<Integer>> expectedIndex) throws FileNotFoundException {
+	public TestSingleWordRetrieval(ArrayList<BooleanDocument> inputCollection, HashMap<String, ArrayList<Integer>> expectedIndex, String message) throws FileNotFoundException {
 		this.inputCollection = inputCollection;
 		this.expectedIndex = expectedIndex;
 	}
@@ -52,7 +52,7 @@ public class ParameterizedInvertedIndexTest {
 	}
 	
 	// This method sets up the data for the tests
-	@Parameters
+	@Parameters (name = "{2}")
 	public static List<Object[]> data() throws FileNotFoundException {
 		setupInvertedIndeces();
 		// use filereader class to read in testcollections from different locations here
@@ -60,8 +60,8 @@ public class ParameterizedInvertedIndexTest {
 		ArrayList<BooleanDocument> testCollection2 = FileReader.readCollection(TEST_PATH_2);
 		
 		return Arrays.asList(new Object[][] {
-	    							{testCollection1, testInvertedIndex1},
-	    							{testCollection2, testInvertedIndex2}
+	    							{testCollection1, testInvertedIndex1, "Einfache Collection"},
+	    							{testCollection2, testInvertedIndex2, "Case-Sensitive Collection mit zusätzlichem Whitespace"}
 	    					});
 	}
 	
