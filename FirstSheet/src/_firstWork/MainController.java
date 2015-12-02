@@ -29,16 +29,15 @@ public class MainController {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter a query:");
 		String query = scanner.nextLine();
-		//String query = "david AND theo";
-		
-		// test for aufgabe 2
-		//System.out.println(invertedIndex.searchForSingleWord(query));
-		
-		//breakdown the query into two terms
-		String[] qterms = query.trim().split("AND");
-		//for (String q:qterms)
-		//	System.out.println(q.trim().toLowerCase());
+		// String query = "david AND theo";
 
+		// test for aufgabe 2
+		// System.out.println(invertedIndex.searchForSingleWord(query));
+
+		// breakdown the query into two terms
+		String[] qterms = query.trim().split("AND");
+		// for (String q:qterms)
+		// System.out.println(q.trim().toLowerCase());
 
 		// mergeResult- Liste aller IDs der Dokumente die der Query entsprechen
 		ArrayList<Integer> mergeResult = invertedIndex.performANDMerge(qterms[0], qterms[1]);
