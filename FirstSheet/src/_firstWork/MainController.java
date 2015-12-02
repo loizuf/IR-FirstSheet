@@ -2,6 +2,7 @@ package _firstWork;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import _firstGiven.BooleanDocument;
 import _firstGiven.FileReader;
@@ -22,19 +23,29 @@ public class MainController {
 		// invertedIndex - Repraesentation des InvertedIndex
 		InvertedIndex invertedIndex = new InvertedIndex(collection);
 
-		// queryterms - array mit den beiden Queryterms
-		String[] queryTerms = getQueryTerms();
-
+		// breakdown the query into two terms
+		String[] qterms = getQueryTerms();
+		
 		// mergeResult- Liste aller IDs der Dokumente die der Query entsprechen
-		ArrayList<Integer> mergeResult = invertedIndex.performANDMerge(queryTerms[0], queryTerms[1]);
+		ArrayList<Integer> mergeResult = invertedIndex.performANDMerge(qterms[0], qterms[1]);
 
 		postResults(mergeResult);
 	}
 
 	// Bearbeiten sie Aufgabe 3 hier.
-	// Methode die einen String vom User einlieﬂt, splittet und als array zurueckgibt
 	public static String[] getQueryTerms() {
-		return null;
+		// let's get a query from the user via the command line
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter a query:");
+		String query = scanner.nextLine();
+		scanner.close();
+		
+		// Lets clean up those queryterms
+		String[] result = query.split("AND");
+		result[0] = result[0].trim().toLowerCase();
+		result[1] = result[1].trim().toLowerCase();
+		
+		return result;
 	}
 
 	/*
