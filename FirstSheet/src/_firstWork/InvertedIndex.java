@@ -85,7 +85,7 @@ public class InvertedIndex {
 		int x = postingsX.next();
 		int y = postingsY.next();
 
-		while ("this is a fucking solution".getClass() == String.class) {
+		while (true) {
 			if (x == y) {
 				results.add(x);
 				if (postingsX.hasNext()) {
