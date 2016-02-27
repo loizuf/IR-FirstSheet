@@ -8,7 +8,7 @@ import java.util.LinkedHashSet;
  * Objekte dieser Klasse zu erzeugen und zu speichern würde in einem echten IR-System keinen Sinn machen.
  * Diese Klasse existiert um alle Dateien als Objekte zu repräsentieren und den Zugang zu den Dateien zu erleichtern
  */
-public class BooleanDocument implements BooleanIndexable {
+public class BooleanDocument {
 
 	/*
 	 * wordList - Liste aller Wörter in der Reihenfolge in der sie im Text auftauchen (mit Vielfachen)
@@ -37,13 +37,23 @@ public class BooleanDocument implements BooleanIndexable {
 		return name;
 	}
 
-	// Interface Methode (Indexable)
+	/**
+	 * Returns an ArrayList containing all words in the Document or query (without
+	 * duplicates)
+	 * 
+	 * @return wordList - HashMap of all words (without duplicates)
+	 */
 	public ArrayList<String> getUniqueWordList() {
 		ArrayList<String> uniqueWordList = new ArrayList<String>(new LinkedHashSet<>(wordList));
 		return uniqueWordList;
 	}
 
-	// Interface Methode (Indexable)
+	/**
+	 * Returns an ArrayList containing all words in the Document or query (with
+	 * duplicates)
+	 * 
+	 * @return wordList - HashMap of all words (with duplicates)
+	 */
 	public ArrayList<String> getWordList() {
 		return wordList;
 	}
