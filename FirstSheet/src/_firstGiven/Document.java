@@ -8,7 +8,7 @@ import java.util.LinkedHashSet;
  * Objekte dieser Klasse zu erzeugen und zu speichern würde in einem echten IR-System keinen Sinn machen.
  * Diese Klasse existiert um alle Dateien als Objekte zu repräsentieren und den Zugang zu den Dateien zu erleichtern
  */
-public class BooleanDocument {
+public class Document {
 
 	/*
 	 * wordList - Liste aller Wörter in der Reihenfolge in der sie im Text auftauchen (mit Vielfachen)
@@ -23,7 +23,7 @@ public class BooleanDocument {
 	 * @param unalteredWords - String containing the complete text of the document
 	 * @param name - name of the document
 	 */
-	public BooleanDocument(String unalteredWords, String name) {
+	public Document(String unalteredWords, String name) {
 		
 		this.name = name;
 		wordList = Tokenizer.tokenize(unalteredWords);

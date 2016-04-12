@@ -20,10 +20,10 @@ public class Test_4c {
 	private static final String TEST_PATH_3 = "collections/testCollections/third";
 
 	// Variable containing an instance of InvertedIndex
-	private InvertedIndex invertedIndex;
+	private static InvertedIndex invertedIndex;
 
 	@BeforeClass
-	public void setupBeforeClass() throws FileNotFoundException {
+	public static void setupBeforeClass() throws FileNotFoundException {
 		invertedIndex = new InvertedIndex(FileReader.readCollection(TEST_PATH_3));
 	}
 	
@@ -59,14 +59,14 @@ public class Test_4c {
 		ArrayList<Integer> arrayList = invertedIndex.performXORMerge("enterprise", "doctor");
 		Collections.sort(arrayList);
 		Integer[] array = arrayList.toArray(new Integer[arrayList.size()]);
-		assertArrayEquals(new Integer[] { 0, 2, 5, 6 }, array);
+		assertArrayEquals(new Integer[] { 0, 1, 2, 5, 6 }, array);
 	}
 
 	@Test
 	public void testSomeMatches() {
-		ArrayList<Integer> arrayList = invertedIndex.performXORMerge("spock", "commander");
+		ArrayList<Integer> arrayList = invertedIndex.performXORMerge("logic", "enterprise");
 		Collections.sort(arrayList);
 		Integer[] array = arrayList.toArray(new Integer[arrayList.size()]);
-		assertArrayEquals(new Integer[] { 3 }, array);
+		assertArrayEquals(new Integer[] { 1, 3 }, array);
 	}
 }

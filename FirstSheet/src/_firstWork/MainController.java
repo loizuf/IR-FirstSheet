@@ -3,7 +3,7 @@ package _firstWork;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import _firstGiven.BooleanDocument;
+import _firstGiven.Document;
 import _firstGiven.FileReader;
 
 public class MainController {
@@ -14,7 +14,7 @@ public class MainController {
 	public static void main(String[] args) throws IOException {
 
 		// collection - Liste aller Document-Objekte
-		ArrayList<BooleanDocument> collection = FileReader.readCollection(COLLECTION_3_DIRECTORY_PATH);
+		ArrayList<Document> collection = FileReader.readCollection(COLLECTION_3_DIRECTORY_PATH);
 
 		// invertedIndex - Repraesentation des InvertedIndex
 		InvertedIndex invertedIndex = new InvertedIndex(collection);

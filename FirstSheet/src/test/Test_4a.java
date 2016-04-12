@@ -20,10 +20,10 @@ public class Test_4a {
 	private static final String TEST_PATH_3 = "collections/testCollections/third";
 
 	// Variable containing an instance of InvertedIndex
-	private InvertedIndex invertedIndex;
+	private static InvertedIndex invertedIndex;
 
 	@BeforeClass
-	public void setupBeforeClass() throws FileNotFoundException {
+	public static void setupBeforeClass() throws FileNotFoundException {
 		invertedIndex = new InvertedIndex(FileReader.readCollection(TEST_PATH_3));
 	}
 	
@@ -60,10 +60,10 @@ public class Test_4a {
 
 	@Test
 	public void testNoSameDocuments() {
-		ArrayList<Integer> arrayList = invertedIndex.performANDNOTMerge("enterprise", "doctor");
+		ArrayList<Integer> arrayList = invertedIndex.performANDNOTMerge("enterprise", "human");
 		Collections.sort(arrayList);
 		Integer[] array = arrayList.toArray(new Integer[arrayList.size()]);
-		assertArrayEquals(new Integer[] { 0, 5, 6 }, array);
+		assertArrayEquals(new Integer[] { 0, 2, 5, 6 }, array);
 	}
 
 	// "commander" is not in every document that "spock" is in => some results

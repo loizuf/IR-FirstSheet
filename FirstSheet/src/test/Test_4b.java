@@ -20,10 +20,10 @@ public class Test_4b {
 	private static final String TEST_PATH_3 = "collections/testCollections/third";
 
 	// Variable containing an instance of InvertedIndex
-	private InvertedIndex invertedIndex;
+	private static InvertedIndex invertedIndex;
 
 	@BeforeClass
-	public void setupBeforeClass() throws FileNotFoundException {
+	public static void setupBeforeClass() throws FileNotFoundException {
 		invertedIndex = new InvertedIndex(FileReader.readCollection(TEST_PATH_3));
 	}
 	
@@ -51,15 +51,15 @@ public class Test_4b {
 		ArrayList<Integer> arrayList = invertedIndex.performORMerge("enterprise", "enterprise");
 		Collections.sort(arrayList);
 		Integer[] array = arrayList.toArray(new Integer[arrayList.size()]);
-		assertArrayEquals(new Integer[] { 0, 5, 6 }, array);
+		assertArrayEquals(new Integer[] { 0, 2, 5, 6 }, array);
 	}
 
 	@Test
 	public void testNoMatches() {
-		ArrayList<Integer> arrayList = invertedIndex.performORMerge("enterprise", "doctor");
+		ArrayList<Integer> arrayList = invertedIndex.performORMerge("enterprise", "human");
 		Collections.sort(arrayList);
 		Integer[] array = arrayList.toArray(new Integer[arrayList.size()]);
-		assertArrayEquals(new Integer[] { 0, 2, 5, 6 }, array);
+		assertArrayEquals(new Integer[] { 0, 1, 2, 5, 6 }, array);
 	}
 
 	@Test

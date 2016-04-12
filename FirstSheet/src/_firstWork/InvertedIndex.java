@@ -3,7 +3,7 @@ package _firstWork;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import _firstGiven.BooleanDocument;
+import _firstGiven.Document;
 
 public class InvertedIndex {
 
@@ -11,33 +11,33 @@ public class InvertedIndex {
 	// Sie können auch eine eigene Variable anlegen.
 	private HashMap<String, ArrayList<Integer>> invertedIndex;
 
-	// Bearbeiten sie Aufgabe 1 hier.
-	public InvertedIndex(ArrayList<BooleanDocument> collection) {
+	// Bearbeiten sie Aufgabe 1.a hier.
+	public InvertedIndex(ArrayList<Document> collection) {
 
 	}
 
-	// Bearbeiten sie Aufgabe 2 hier.
+	// Bearbeiten sie Aufgabe 1.b hier.
 	public ArrayList<Integer> searchForSingleWord(String word) {
-		return null;
+		return new ArrayList<Integer>();
 	}
 
-	// Bearbeiten sie Aufgabe 4 hier
+	// Bearbeiten sie Aufgabe 3 hier
 	public ArrayList<Integer> performANDMerge(String firstWord, String secondWord) {
-		return null;
+		return new ArrayList<Integer>();
 	}
 
-	// Bearbeiten sie Aufgabe 5.a hier
+	// Bearbeiten sie Aufgabe 4.a hier
 	public ArrayList<Integer> performANDNOTMerge(String firstWord, String secondWord) {
-		return null;
+		return new ArrayList<Integer>();
 	}
 
-	// Bearbeiten sie Aufgabe 5.b hier
+	// Bearbeiten sie Aufgabe 4.b hier
 	public ArrayList<Integer> performORMerge(String firstWord, String secondWord) {
-		return null;
+		return new ArrayList<Integer>();
 	}
 
-	// Bearbeiten sie Aufgabe 5.c hier
+	// Bearbeiten sie Aufgabe 4.c hier
 	public ArrayList<Integer> performXORMerge(String firstWord, String secondWord) {
-		return null;
+		return new ArrayList<Integer>();
 	}
 }
