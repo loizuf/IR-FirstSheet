@@ -8,12 +8,9 @@ import _firstGiven.FileReader;
 
 public class MainController {
 
-	/*
-	 * LoremIpsumCollectionDirectoryPath - Name des Verzeichnisses das die
-	 * Dokumente enthaelt
-	 */
-	private static final String COLLECTION_3_DIRECTORY_PATH = "collections/testCollections/third";
-
+	// directory der Collection
+	static final String COLLECTION_3_DIRECTORY_PATH = "collections/testCollections/third";
+	
 	public static void main(String[] args) throws IOException {
 
 		// collection - Liste aller Document-Objekte
