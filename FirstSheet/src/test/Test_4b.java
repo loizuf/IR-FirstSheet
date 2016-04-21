@@ -35,7 +35,7 @@ public class Test_4b {
 		ArrayList<Integer> arrayList = invertedIndex.performORMerge("marcus", "tiberius");
 		Collections.sort(arrayList);
 		Integer[] array = arrayList.toArray(new Integer[arrayList.size()]);
-		assertArrayEquals(new Integer[] { 1 }, array);
+		assertArrayEquals(new Integer[] { 0 }, array);
 	}
 
 	@Test
@@ -43,7 +43,7 @@ public class Test_4b {
 		ArrayList<Integer> arrayList = invertedIndex.performORMerge("tiberius", "marcus");
 		Collections.sort(arrayList);
 		Integer[] array = arrayList.toArray(new Integer[arrayList.size()]);
-		assertArrayEquals(new Integer[] { 1 }, array);
+		assertArrayEquals(new Integer[] { 0 }, array);
 	}
 
 	@Test

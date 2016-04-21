@@ -47,7 +47,7 @@ public class Test_4a {
 		ArrayList<Integer> arrayList = invertedIndex.performANDNOTMerge("tiberius", "marcus");
 		Collections.sort(arrayList);
 		Integer[] array = arrayList.toArray(new Integer[arrayList.size()]);
-		assertArrayEquals(new Integer[] { 1 }, array);
+		assertArrayEquals(new Integer[] { 0 }, array);
 	}
 
 	@Test

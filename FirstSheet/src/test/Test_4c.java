@@ -35,7 +35,7 @@ public class Test_4c {
 		ArrayList<Integer> arrayList = invertedIndex.performXORMerge("marcus", "tiberius");
 		Collections.sort(arrayList);
 		Integer[] array = arrayList.toArray(new Integer[arrayList.size()]);
-		assertArrayEquals(new Integer[] { 1 }, array);
+		assertArrayEquals(new Integer[] { 0 }, array);
 	}
 
 	@Test
@@ -43,7 +43,7 @@ public class Test_4c {
 		ArrayList<Integer> arrayList = invertedIndex.performXORMerge("tiberius", "marcus");
 		Collections.sort(arrayList);
 		Integer[] array = arrayList.toArray(new Integer[arrayList.size()]);
-		assertArrayEquals(new Integer[] { 1 }, array);
+		assertArrayEquals(new Integer[] { 0 }, array);
 	}
 
 	@Test
@@ -56,10 +56,10 @@ public class Test_4c {
 
 	@Test
 	public void testNoMatches() {
-		ArrayList<Integer> arrayList = invertedIndex.performXORMerge("enterprise", "doctor");
+		ArrayList<Integer> arrayList = invertedIndex.performXORMerge("enterprise", "nyota");
 		Collections.sort(arrayList);
 		Integer[] array = arrayList.toArray(new Integer[arrayList.size()]);
-		assertArrayEquals(new Integer[] { 0, 1, 2, 5, 6 }, array);
+		assertArrayEquals(new Integer[] { 0, 2, 4, 5, 6 }, array);
 	}
 
 	@Test
@@ -67,6 +67,10 @@ public class Test_4c {
 		ArrayList<Integer> arrayList = invertedIndex.performXORMerge("logic", "enterprise");
 		Collections.sort(arrayList);
 		Integer[] array = arrayList.toArray(new Integer[arrayList.size()]);
-		assertArrayEquals(new Integer[] { 1, 3 }, array);
+		
+		for(int i = 0; i < array.length; i++)
+			System.out.println( array[i] );
+		
+		assertArrayEquals(new Integer[] { 0, 1, 3, 5, 6 }, array);
 	}
 }
